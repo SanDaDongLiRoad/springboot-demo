@@ -1,17 +1,21 @@
 package com.xulizhi.demo.common;
 
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author lenovo
  */
+@MappedSuperclass
 public class BaseDomain implements Serializable {
 
     private static final long serialVersionUID = 6225092142915650587L;
     /**
      * ID
      */
+    @Id
     private String id;
 
     /**

@@ -2,6 +2,12 @@ package com.xulizhi.demo.domain;
 
 import com.xulizhi.demo.common.BaseDomain;
 
+import javax.persistence.Entity;
+
+/**
+ * @author 10133
+ */
+@Entity
 public class User extends BaseDomain {
 
     /**
