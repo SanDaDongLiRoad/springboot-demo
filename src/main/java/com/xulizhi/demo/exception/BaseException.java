@@ -2,6 +2,9 @@ package com.xulizhi.demo.exception;
 
 import com.xulizhi.demo.enums.ResultEnum;
 
+/**
+ * @author lenovo
+ */
 public class BaseException extends RuntimeException{
 
     private Integer code;
