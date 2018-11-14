@@ -11,4 +11,9 @@ public interface UserService {
      * @return
      */
     List<UserDTO> queryUserList();
+
+    /**
+     * 根据账户ID查询账户
+     */
+    UserDTO queryUserById(String userId);
 }

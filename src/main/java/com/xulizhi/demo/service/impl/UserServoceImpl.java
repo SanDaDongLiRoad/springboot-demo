@@ -33,4 +33,15 @@ public class UserServoceImpl implements UserService {
         }
         return userDTOList;
     }
+
+    @Override
+    public UserDTO queryUserById(String userId) {
+        UserDTO userDTO = new UserDTO();
+        User user = userRepository.getOne(userId);
+        userDTO.setId(user.getId());
+        userDTO.setName(user.getName());
+        userDTO.setPassword(user.getPassword());
+        userDTO.setAge(user.getAge());
+        return userDTO;
+    }
 }

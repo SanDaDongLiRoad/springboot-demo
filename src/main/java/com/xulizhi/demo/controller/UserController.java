@@ -7,6 +7,7 @@ import com.xulizhi.demo.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,8 +22,17 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 查询账户列表
+     * @return
+     */
     @GetMapping("queryUserList")
     public Result<List<UserDTO>> queryUserList(){
         return ResultUtil.success(userService.queryUserList());
+    }
+
+    @GetMapping("queryUserById")
+    public Result<UserDTO> queryUserById(@RequestParam("userId") String userId){
+        return ResultUtil.success(userService.queryUserById(userId));
     }
 }
