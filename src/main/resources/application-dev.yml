@@ -13,7 +13,7 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/springboot-demo?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=GMT
     username: root
     password: root
-    jpa:
-      hibernate:
-        ddl-auto: update
-      show-sql: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
