@@ -1,10 +1,13 @@
 package com.xulizhi.demo.dto;
 
+import java.io.Serializable;
+
 /**
  * @author lenovo
  */
-public class UserDTO {
+public class UserDTO implements Serializable{
 
+    private static final long serialVersionUID = -8094009881007862816L;
     /**
      * 用户ID
      */
