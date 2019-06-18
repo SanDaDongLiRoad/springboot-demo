@@ -20,6 +20,9 @@ public class HttpAspect {
 
     private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
 
+    //请求开始时间
+    private long beginTime;
+
     @Pointcut("execution(public * com.xulizhi.demo.controller.*.*(..))")
     public void log() {
     }
@@ -29,21 +32,26 @@ public class HttpAspect {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
 
-        //url
-        logger.info("url={}", request.getRequestURL());
-        //method
-        logger.info("method={}", request.getMethod());
-        //ip
-        logger.info("ip={}", request.getRemoteAddr());
-        //类方法
-        logger.info("class_method={}", joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-        //参数
-        logger.info("args={}", joinPoint.getArgs());
+//        //url
+//        logger.info("url={}", request.getRequestURL());
+//        //method
+//        logger.info("method={}", request.getMethod());
+//        //ip
+//        logger.info("ip={}", request.getRemoteAddr());
+//        //类方法
+//        logger.info("class_method={}", joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+//        //参数
+//        logger.info("args={}", joinPoint.getArgs());
+        //请求开始时间
+        beginTime = System.currentTimeMillis();
     }
 
     @After("log()")
     public void doAfter() {
         logger.info("222222222222");
+        long endTime = System.currentTimeMillis();
+
+        logger.info("方法执行了{}ms",(endTime-beginTime));
     }
 
     @AfterReturning(returning = "object", pointcut = "log()")
